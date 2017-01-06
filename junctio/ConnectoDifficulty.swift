@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ConnectoDifficulty {
-    
     func puzzleDimensions() -> (Int, Int);
-    
+    func getNextDifficulty() -> ConnectoDifficulty;
+    func getTitle() -> String;
 }

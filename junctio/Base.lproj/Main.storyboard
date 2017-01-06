@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cYN-Dp-HSf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Connnecto Board View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ConnnectoBoardViewController" customModule="junctio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CollectionViewController" customModule="junctio" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fWw-LJ-WsR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,14 +31,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vhv-Hh-H34">
-                                            <rect key="frame" x="-0.5" y="0.0" width="50" height="49.5"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross_spectro" translatesAutoresizingMaskIntoConstraints="NO" id="Kyg-0E-HeQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Kyg-0E-HeQ" secondAttribute="trailing" id="XDH-KU-Mc5"/>
+                                    <constraint firstItem="Kyg-0E-HeQ" firstAttribute="leading" secondItem="2N6-ZX-6vT" secondAttribute="leading" id="ev5-L8-6bP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kyg-0E-HeQ" secondAttribute="bottom" id="gWu-hs-G1O"/>
+                                    <constraint firstItem="Kyg-0E-HeQ" firstAttribute="top" secondItem="2N6-ZX-6vT" secondAttribute="top" id="mDW-CO-DLM"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="image" destination="vhv-Hh-H34" id="6ap-qt-Q72"/>
+                                    <outlet property="img" destination="Kyg-0E-HeQ" id="Yja-uP-XwI"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -47,10 +52,61 @@
                             <outlet property="delegate" destination="BYZ-38-t0r" id="fLc-bA-T0O"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem title="»" style="plain" id="G9v-bU-Khk">
+                            <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="newGamePressed:" destination="BYZ-38-t0r" id="IDN-Yi-j4z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vpc-9V-zLg"/>
+                        <barButtonItem title="Easy" id="Tgo-sv-Dpp">
+                            <connections>
+                                <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" id="Imb-XJ-We7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="1al-IY-Sio"/>
+                        <barButtonItem title="Skin" id="0pq-Jy-LFF">
+                            <connections>
+                                <action selector="skinButtonPressed:" destination="BYZ-38-t0r" id="LbB-K4-PQo"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="Ube-3j-N61"/>
+                    <connections>
+                        <outlet property="difficultyButton" destination="Tgo-sv-Dpp" id="245-zu-dw0"/>
+                        <outlet property="newGameButton" destination="G9v-bU-Khk" id="E2l-pD-2vw"/>
+                        <outlet property="skinButton" destination="0pq-Jy-LFF" id="RbB-ee-VHJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kTo-Iu-6os">
+            <objects>
+                <navigationController navigationBarHidden="YES" toolbarHidden="NO" hidesBarsOnSwipe="YES" id="cYN-Dp-HSf" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" translucent="NO" id="j4Y-20-N3C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="BKD-mH-B8G">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="X6w-5c-yiO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7l-qj-kMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="139"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="cross_spectro" width="400" height="400"/>
+    </resources>
 </document>
